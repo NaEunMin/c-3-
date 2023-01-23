@@ -19,7 +19,15 @@ class SelectableRandom{
   public:
   SelectableRandom();
   int next(int even_or_odd);
+  int nextInRange(int start, int end, int even_or_odd);
+};
 
+  SelectableRandom::SelectableRandom(){
+    srand((unsigned)time(0));
+    start=0;
+    end=RAND_MAX;
+}
+  
 int SelectableRandom::next(int even_or_odd){
     while(true){
    int n=rand()%RAND_MAX+1;
@@ -52,11 +60,5 @@ int main()
     cout << '\n';
     return 0;
 }
-  int nextInRange(int start, int end, int even_or_odd);
-};
 
-SelectableRandom::SelectableRandom(){
-    srand((unsigned)time(0));
-    start=0;
-    end=RAND_MAX;
-}
+
